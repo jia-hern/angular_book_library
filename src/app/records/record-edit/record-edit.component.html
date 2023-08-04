@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="recordForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success" [disabled]="!recordForm.valid">Save
+                    </button>
+                    <button type="button" class="btn btn-danger" (click)="onNavigateBack()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="options">Activity</label>
+                        <select formControlName="activity" class="form-control" id="options">
+                            <option [ngValue]="null" disabled>Choose the activity</option>
+                            <option *ngFor="let activityOption of activityOptionsArray" [ngValue]="activityOption">
+                                {{ activityOption }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="options2">Reader</label>
+                        <select formControlName="readerId" class="form-control" id="options2">
+                            <option [ngValue]="null" disabled>Choose the reader</option>
+                            <option *ngFor="let readerOption of readerOptionsArray" [ngValue]="readerOption.id">
+                                ID:{{ readerOption.id }} | Name: {{ readerOption.name }} | birth date: {{
+                                readerOption.birthDate }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="options3">Book</label>
+                        <select formControlName="bookId" class="form-control" id="options2">
+                            <option [ngValue]="null" disabled>Choose the book</option>
+                            <option *ngFor="let bookOption of bookOptionsArray" [ngValue]="bookOption.id">
+                                ID:{{ bookOption.id }} | Title: {{ bookOption.title }} | Description: {{
+                                bookOption.description }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

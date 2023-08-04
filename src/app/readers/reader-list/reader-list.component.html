@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-sucess" (click)="goToNewReader()">New Reader</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-reader-item *ngFor="let readerElement of readers; 
+        let i = index" [reader]="readerElement" [index]="i"></app-reader-item>
+    </div>
+</div>

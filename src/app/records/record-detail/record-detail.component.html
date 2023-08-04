@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Activity: {{record.activity}}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group" appDropdown>
+                <button type="button" class="btn btn-primary dropdown-toggle">
+                    Manage Record <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a style="cursor: pointer; margin-bottom: 15px;" (click)="onEditRecord()">Edit Record</a></li>
+                    <li><a style="cursor: pointer;" (click)="onDeleteRecord()">Delete Record</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        Timestamp: {{ record.timestamp | date: 'MMM d, y, h:mm:ss a' }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12"> Reader {{ record.reader.name }} with birth date {{ record.reader.birthDate }} {{
+        record.activity }}ed</div>
+    <div class="col-xs-12">
+        book with title {{ record.book.title }} with book description {{ record.book.description }}
+    </div>
+</div>

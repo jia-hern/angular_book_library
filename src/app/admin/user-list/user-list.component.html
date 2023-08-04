@@ -1,0 +1,6 @@
+<div class="row">
+    <div class="col-xs-12">
+        <app-user-item *ngFor="let userElement of users; let i = index" [user]="userElement"
+            [index]="i"></app-user-item>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="sendRequest()">TEST</button>
+</body>
+
+<script>
+    sendRequest = async () => {
+        let url = 'http://localhost:8080/reader/all';
+        let method = 'GET';
+        let token = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiUk9MRV9hZG1pbiIsImV4cCI6MTY5MDk3MTk5NH0.pKOe2zQ_lN0j6MPXpKH3NtVMo-Tt3ccdSzpGGZ_WQimLplhJmillXPAhFjFheQ5Nn1qLPmCWOvduLivhwdUg0w';
+        let headers = {
+            'Authorization': 'Bearer ' + token
+        };
+        let parameters = { method, headers };
+
+        try {
+            const response = await fetch(url, parameters);
+            const string = await response.text();
+            const json = string === "" ? {} : JSON.parse(string);
+            if (!response.ok) {
+                console.log("response not ok");
+            }
+            console.log('json: ', json);
+        } catch (error) {
+            console.log('error: ', error);
+        }
+    }
+</script>
+
+</html>

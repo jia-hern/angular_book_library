@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Update
+                    </button>
+                    <button type="button" class="btn btn-danger" (click)="onNavigateBack()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="options">Role</label>
+                        <select formControlName="role" class="form-control" id="options">
+                            <option [ngValue]="null" disabled>Set the user role</option>
+                            <option *ngFor="let roleOption of roleOptionsArray" [ngValue]="roleOption">
+                                {{ roleOption }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-sucess" (click)="goToNewRecord()">New Record</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-record-item *ngFor="let recordElement of records; let i = index" [record]="recordElement"
+            [index]="i"></app-record-item>
+    </div>
+</div>
